@@ -1,0 +1,20 @@
+<!-- PRIMARY AUTHOR: Trevor Walker -->
+
+<% include ../partials/_header.ejs %>
+
+<div class ="container">
+  <div id="main-container">
+
+    <h3 class="custom-title">College Bazaar Communities </h3>
+    <hr/>
+
+    <a href="/communities/new">Create a Community</a>
+
+    <% for (i = 0; i<communities.length; i++) { %>
+    <h3><a href="/communities/join/<%=communities[i].id%>"><%=communities[i].name%></a></h3>
+    <% } %>
+  </div>
+</div>
+</body>
+
+<% include ../partials/_footer.ejs %>

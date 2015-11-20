@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/_header.ejs %>
+
+<div class ="container">
+  <div id="main-container">
+
+    <div class="row demo-tiles">
+        <div class="col-xs-3">
+          <div class="tile">
+            <img src="img/icons/svg/paper-bag.svg" alt="Listings" class="tile-image big-illustration">
+            <h3 class="tile-title">All Listings</h3>
+            <p>View all items currently for sale or requested.</p>
+            <a class="btn btn-primary btn-large btn-block" href="listings">View Listings</a>
+          </div>
+        </div>
+
+
+        <% if (session.userId) { %>
+          <div class="col-xs-3">
+            <div class="tile">
+              <img src="img/icons/svg/clipboard.svg" alt="Create Listing" class="tile-image">
+              <h3 class="tile-title">New Listing</h3>
+              <p>Request for an item or list an item for sale.</p>
+              <a class="btn btn-primary btn-large btn-block" href="/listings/new">Create Listing</a>
+            </div>
+          </div>
+        <% } else { %>
+          <div class="col-xs-3">
+            <div class="tile">
+              <img src="img/icons/svg/clipboard.svg" alt="Sign Up / Log In" class="tile-image">
+              <h3 class="tile-title">Sign Up to Sell</h3>
+              <p>Only verified users can post an items for sale.</p>
+              <a class="btn btn-primary btn-large btn-block" href="/users/login">Log In / Sign Up</a>
+            </div>
+          </div>
+        <% } %>
+
+
+        <div class="col-xs-3">
+          <div class="tile">
+            <img src="img/icons/svg/loop.svg" alt="Communities" class="tile-image">
+            <h3 class="tile-title">Communities</h3>
+            <p>Join communities to post to private groups.</p>
+            <a class="btn btn-primary btn-large btn-block" href="/communities/">View Communities</a>
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <div class="tile tile-hot">
+            <img src="img/icons/svg/book.svg" alt="View Users" class="tile-image" class="tile-hot-ribbon">
+            <h3 class="tile-title">Directory</h3>
+            <p>Explore the directory of all users in the exchange.</p>
+            <a class="btn btn-primary btn-large btn-block" href="/users/">Explore Directory</a>
+          </div>
+        </div>
+
+        <div id="ajax"></div>
+      </div>
+
+    </div>
+</div>
+
+<% include ../partials/_footer.ejs %>
+
+</html>

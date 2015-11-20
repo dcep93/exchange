@@ -1,0 +1,15 @@
+		<% subscriptions.forEach(function(subscription) { %>
+
+			<div id="<%= subscription._id %>" class="row">
+				<div class="col-md-2">
+					<span class="tag label label-info tag-btn"><%= subscription.name %></span>
+				</div>
+				<div class="col-md-2"><%= subscription.count %> listings</div>
+				<% if (subscription.subscribed) { %>
+					<div class="col-md-2">subscribed</div>
+				<% } else { %>
+					<div class="col-md-2"><a class="subscribe" href="/subscriptions/subscribe/<%= subscription._id %>">subscribe</a></div>
+				<% } %>
+			</div>
+
+    <% }); %>

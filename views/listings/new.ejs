@@ -1,0 +1,34 @@
+<% include ../partials/_header.ejs %>
+
+<div class="container">
+  <div id="main-container">
+
+  <h3 class="custom-title">Create A Listing</h3>
+  <hr/>
+
+  <form method="post" action="/listings">
+    <p>
+      <label>Title:</label>
+      <input type="text" class="form-control" name="title">
+    </p>
+    <p>
+      <label>Description:</label>
+      <textarea class="form-control" rows="3" name="description"></textarea>
+    </p>
+    <p>
+      <label>Price:</label>
+      <input type="text" class="form-control" name="price">
+    </p>
+    <p>
+      <label>Tags / Categories (#couch, #laptop, etc.):</label>
+			<input type="text" id="yeah" name="listingTags" data-role="tagsinput">
+    </p>
+    <p>
+      <input type="submit" class="btn btn-primary" value="Post Listing to College Bazaar!">
+    </p>
+  </form>
+
+</div>
+</div>
+
+<% include ../partials/_footer.ejs %>

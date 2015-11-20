@@ -1,0 +1,20 @@
+<% include ../partials/_header.ejs %>
+
+<div class="container">
+  <div id="main-container">
+		<h3 class="custom-title">Bids for <%= title %></h3>
+		<hr/>
+
+		<% bids.forEach(function(bid) { %>
+    <div id ="<%= bid._id %>" class="row">
+			<div class="col-md-12">
+				<h4>bidder: <%= bid.bidder.name %></h4>
+				<p><%= bid.description %></p>
+			</div>
+    </div>
+		<hr></hr>
+		<% }) %>
+  </div>
+</div>
+
+<% include ../partials/_footer.ejs %>

@@ -1,0 +1,64 @@
+<% include ../partials/_header.ejs %>
+
+<div class="container">
+  <div id="main-container">
+    <div id ="<%= listing.id %>" class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><%= listing.title %> <small>by <%= listing.owner.name %></small></h3>
+					</div>
+				</div> <!-- end row -->
+				<div class="row">
+					<div class="col-md-8">
+						<blockquote>
+							<p><%= listing.description %></p>
+						</blockquote>
+					</div>
+				</div> <!-- end row -->
+				<% if (listing.tags) { %>
+				<div class="row">
+					<div class="col-md-1">
+						Tags: 
+					</div>
+					<div class="col-md-8 text-left">
+					<% for (var i = 0; i<listing.tags.length; i++) { %>
+						<span class="tag label label-info tag-btn"><%= listing.tags[i].name %></span>
+					<% } %>
+					</div>
+				</div> <!-- end row -->
+				<% } %>
+			</div>
+		</div> <!-- end row -->
+		<div class="row">
+			<% if (session.userId) { %>
+				<% if (session.userId == listing.owner) { %>
+				<div class="col-md-12"><a href="/listings/<%= listing._id %>/edit">Edit this post</a></div>
+				<% } %>
+			<% } %>
+		</div> <!-- end row -->
+		<hr>
+		<div class="row">
+			<div class="col-md-6">
+				<% if (typeof(bidSubmitted) != 'undefined') { %>
+				<%= bidSubmitted %>
+				<% } %>
+			</div>
+		</div> <!-- end row -->
+		<% if (session.userId) { %>
+			<div class="row">
+				<div class="col-md-6">
+					<form name="input" action="/listings/<%= listing.id %>/bids" method="post">
+						<h4>Make an offer:</h4>
+						<textarea name="content" rows="5" cols="50"></textarea>
+						<input type="submit" value="Reply"> (we will send your offer + email <%= listing.owner.name %>)
+					</form>
+				</div>
+			</div> <!-- end row -->
+		<% } %>
+  </div>
+
+
+</div>
+
+<% include ../partials/_footer.ejs %>

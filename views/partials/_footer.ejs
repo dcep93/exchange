@@ -1,0 +1,85 @@
+
+<footer>
+	<div class="container">
+			<p><strong>College Bazaar.</strong> Handcrafted in Cambridge by @trebawa, @przekop, @dcep, and @noelsequeira, for MIT Class 6.170 - Software Studio.<p>
+	</div>
+</footer>
+
+</body>
+<script>
+	$('#logout').click(function(event) {
+		event.preventDefault();
+		$.post("/users/logout", function() {
+			location.reload();
+			});
+	});
+	
+	var allTags = new Bloodhound({
+	  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+	  queryTokenizer: Bloodhound.tokenizers.whitespace,
+		limit: 1000,
+	  prefetch: {
+			ttl: 1,
+			url: '/tags',
+	    filter: function(list) {
+	      return $.map(list, function(allTag) {
+	        return { name: allTag };
+				});
+		  }
+  	}
+	});
+	
+	allTags.clearPrefetchCache();
+	allTags.initialize(true);
+	
+	$('#yeah').tagsinput({
+  	typeaheadjs: {
+	    name: 'allTags',
+  	  displayKey: 'name',
+	    valueKey: 'name',
+	    source: allTags.ttAdapter()
+	  }
+	});
+		
+		$('.tag-btn').click(function() {
+			var tag = $(this).first().text();
+			window.location.href = '/tags/'+tag;
+		})
+
+		$('#newCommunity').validate({
+			rules: {
+				name: {
+					required: true,
+				},
+				keyword: {
+					required: true,
+				}
+			}
+		});
+
+		$('.subscribe').click(function(e) {
+			e.preventDefault();
+			var loc = $(this).attr('href');
+			console.log(loc);
+			$.post(loc).done(function(d, t, j) {
+				window.location.href = '/subscriptions/subscribers/'+d.id;
+			}).fail(function(j, t, j) {
+				console.log(j.status);
+			});
+		});
+
+		$('.notification').click(function(e) {
+			e.preventDefault();
+			var tag = $(this).attr('id');
+			var href = $(this).attr('href');
+			$.post('/notifications/reset/'+tag, function() {
+				window.location.href = href;
+			});
+		});
+			
+
+
+
+</script>
+
+</html>

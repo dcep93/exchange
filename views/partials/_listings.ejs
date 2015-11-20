@@ -1,0 +1,18 @@
+    <% for(var i=0; i<listings.length; i++) { %>
+
+			<div id="<%= listings[i]._id %>" class="row">
+				<div class="col-lg-1"><small><%= listings[i].days %></small></div>
+				<div class="col-md-2"><big><a href="/listings/<%= listings[i]._id %>"><%= listings[i].title %></a></big></div>
+				<div class="col-md-2">
+					<% if (listings[i].tags) { %>
+						<% for (var j = 0; j<listings[i].tags.length; j++) { %>
+							<span class="tag label label-info tag-btn"><%= listings[i].tags[j].name %></span>
+						<% } %>
+					<% } %>
+				</div>
+				<div class="col-md-7 text-left"><%= listings[i].description %></div>
+			</div>
+       <hr/>
+
+    <% } %>
+

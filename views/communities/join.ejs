@@ -1,0 +1,32 @@
+<!-- PRIMARY AUTHOR: Trevor Walker -->
+<% include ../partials/_header.ejs %>
+
+<div class ="container">
+  <div id="main-container">
+		<div class="row">
+			<h3>Join <%=community.name%></h3>
+		</div>
+		<% if (err && (typeof(err) != 'undefined')) { %>
+		<p><span style="color: red;"><%= err %></span></p>
+		<% } %>
+		<div class="row">
+			<div class="col-md-10">
+				<% if (community.verifyEmail) { %>
+				<form action="/users/join/<%=community._id%>" method="POST" role="form" class="form-group">
+					Send verification email to <%= email %>?<br>
+					<input type="submit" value="Send">
+				</form>
+				<% } else { %>
+				<form action="/users/join/<%=community._id%>" method="POST" role="form" class="form-group">
+					Enter the keyword for <%= community.name %>:<br>
+					<input type="text" name="keyword" >
+					<br><br>
+					<input type="submit" value="Submit">
+				</form>
+				<% } %>
+			</div>
+		</div>
+  </div>
+</div>
+
+<% include ../partials/_footer.ejs %>

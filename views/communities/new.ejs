@@ -1,0 +1,23 @@
+<!-- PRIMARY AUTHOR: Trevor Walker -->
+
+<% include ../partials/_header.ejs %>
+
+<div class ="container">
+  <div id="main-container">
+		<h1>Create a community</h1>
+    <form action="/communities" id="newCommunity" method="POST" role="form" class="form-group">
+			Community name:<br>
+			<input type="text" name="name" required>
+			<br>
+			Verification Keyword:<br>
+			<input type="text" name="keyword" required>
+			<br>
+			<input type="checkbox" name="verifyEmail" value="Verify">Verify email address?<br>
+			<br><br>
+			<input type="submit" value="Create">
+		</form>
+
+  </div>
+</div>
+
+<% include ../partials/_footer.ejs %>

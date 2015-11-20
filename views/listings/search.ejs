@@ -1,0 +1,19 @@
+<% include ../partials/_header.ejs %>
+
+<div class="container">
+  <div id="main-container">
+		<h3>Search results for "<%= search %>"
+		<% if(type === 'tag') { %>
+			<% if (subscribe) { %>
+			<small><a class="subscribe" href="/subscriptions/subscribe/<%= tag %>">subscribe</a></small>
+			<% } %>
+		<% } %>
+		</h3>
+    <hr/>
+
+		<% include ../partials/_listings.ejs %>
+
+  </div>
+</div>
+
+<% include ../partials/_footer.ejs %>

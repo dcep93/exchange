@@ -1,0 +1,19 @@
+<% include ../partials/_header.ejs %>
+
+<div class="container">
+  <div id="main-container">
+		<% if (type === 'all') { %>
+			<h3>All tags by number of listings</h3>
+			<hr/>
+			<% include ../partials/_subscriptions.ejs %>
+		<% } else { %>
+			<h3>All active subscriptions by all users - click to subscribe</h3>
+			<hr/>
+			<% include ../partials/_active.ejs %>
+		<% } %>
+
+  </div>
+</div>
+
+<% include ../partials/_footer.ejs %>
+

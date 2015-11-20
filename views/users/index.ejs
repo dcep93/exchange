@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div><a href="/"> Go to home page </a></div>
+    <h3 class="custom-title"><%= title %></h3>
+    <hr/>
+    <% for(var i = 0; i < individuals.length; i++){ %>
+    	<div>
+    		<%= individuals[i].name %> is <%= individuals[i].age %>
+    	</div>
+    <%}%>
+    <div><a href="/users/new">Want to add a user? </a></div>
+
+  </body>
+</html>

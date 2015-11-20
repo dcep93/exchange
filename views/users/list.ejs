@@ -1,0 +1,17 @@
+<!-- PRIMARY AUTHOR: Trevor Walker -->
+
+<% include ../partials/_header.ejs %>
+
+<div class ="container">
+  <div id="main-container">
+    <h3 class="custom-title">College Bazaar Directory</h3>
+    <hr/>
+    <% for (i = 0; i<users.length; i++) { %>
+    <h4>@<%= users[i].name %></h4>
+    <%= users[i].communities %>
+    <hr/>
+    <% } %>
+  </div>
+</div>
+
+<% include ../partials/_footer.ejs %>

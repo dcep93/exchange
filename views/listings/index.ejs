@@ -1,0 +1,19 @@
+<% include ../partials/_header.ejs %>
+
+<div class="container">
+  <div id="main-container">
+
+    <% if(locals.my_listings){ %>
+    	<h3 class="custom-title">My Listings</h3>
+			<hr/>
+    <% } else { %>
+			<h3 class="custom-title">All Listings</h3>
+			<hr/>
+		<% } %>
+
+		<% include ../partials/_listings.ejs %>
+
+  </div>
+</div>
+
+<% include ../partials/_footer.ejs %>

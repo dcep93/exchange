@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/_header.ejs %>
+
+<div class ="container">
+  <div id="main-container">
+	<h3 class="custom-title">Bids I've Received</h3>
+    <hr/>
+
+		<% for(var i=0; i<bids.length; i++) { %>
+
+		<h4><a href="/bids/<%= bids[i]._id %>/messages"><%= bids[i].description %></a></h4>
+
+		<% } %>
+
+	</div>
+</div>
+
+<% include ../partials/_footer.ejs %>
+</html>

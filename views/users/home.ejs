@@ -1,0 +1,66 @@
+<!-- PRIMARY AUTHOR: Trevor Walker -->
+
+<% include ../partials/_header.ejs %>
+
+
+<div class ="container">
+  <div id="main-container">
+		<h3 class="custom-title">Welcome to College Bazaar, @<%=user.name%>!</h3>
+    <hr/>
+
+    <div class="row demo-tiles">
+      <div class="col-sm-3">
+        <div class="tile">
+          <h3 class="tile-title">My Listings</h3>
+          <p>View all items that you have listed for sale.</p>
+          <a class="btn btn-primary btn-large btn-block" href="listings">View My Listings</a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="tile">
+          <h3 class="tile-title">Bids I've Received</h3>
+          <p>View bids you have received for your listings.</p>
+          <a class="btn btn-primary btn-large btn-block" href="/users/rbids">View Received Bids</a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="tile">
+          <h3 class="tile-title">Bids I've Placed</h3>
+          <p>View all the bids that you have currently placed.</p>
+          <a class="btn btn-primary btn-large btn-block" href="/users/bids">View My Bids</a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="tile">
+          <h3 class="tile-title">My Communities</h3>
+          <p>View private communties that you are a part of.</p>
+          <a class="btn btn-primary btn-large btn-block" href="communities/">View My Communities</a>
+        </div>
+      </div>
+		</div>
+
+    <div class="row demo-tiles">
+      <div class="col-sm-3">
+        <div class="tile">
+          <h3 class="tile-title">Subscriptions</h3>
+          <p>See all tags including your subscriptions.</p>
+          <a class="btn btn-primary btn-large btn-block" href="/subscriptions/">View Subscriptions</a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="tile">
+          <h3 class="tile-title">My Notifications</h3>
+          <p>See the latest listings for tags you subscribe to.</p>
+          <a class="btn btn-primary btn-large btn-block" href="/notifications/">View Notifications</a>
+        </div>
+      </div>
+	   </div>
+
+   </div>
+</div>
+
+<% include ../partials/_footer.ejs %>

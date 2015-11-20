@@ -1,0 +1,51 @@
+<% include ../partials/_header.ejs %>
+
+<div class="container">
+  <div id="main-container">
+    <h3 class="custom-title">Secure buyer-seller messaging thread.</h3>
+	<h6>Listing: <%= bid.listing.title %>
+	<h6>Seller: @<%= seller.name %>. </h6>
+	<h6>Potential Buyer (Bidder): @<%= bid.bidder.name %></h6>
+	
+	<hr/>
+
+    <% messages.forEach(function(message) { %>
+
+          <% if(session.userId == message.sender._id) { %>
+            <div id ="<%= message._id %>" class="row">
+              <div class="col-md-12 message me">
+                <p><strong>Me:</strong>&nbsp;<%= message.content %>
+                <span class="timestamp"><%= message.timestamp %></span>
+                </p>
+              </div>
+            </div>
+          <% } else { %>
+            <div id ="<%= message._id %>" class="row">
+              <div class="col-md-12 message">
+                <p>
+                  <strong><%= message.sender.name %>:</strong>&nbsp;<%= message.content %>
+                  <span class="timestamp"><%= message.timestamp %></span>
+                </p>
+
+              </div>
+            </div>
+          <% } %>
+      <% }) %>
+
+      <hr/>
+
+      <div class="row">
+        <div class="col-md-12 message">
+          <form name="input" action="/bids/<%= bid._id %>/messages" method="post">
+            <div class="input-append">
+              <textarea name="content" style="display:inline-block" type="text"></textarea>
+              <button class="btn btn-primary" style="display:inline-block" type="submit">POST MESSAGE</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <% include ../partials/_footer.ejs %>

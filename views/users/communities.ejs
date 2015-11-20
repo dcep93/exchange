@@ -1,0 +1,18 @@
+<% include ../partials/_header.ejs %>
+
+<div class="container">
+  <div id="main-container">
+		<h3 class="custom-title"><%=user.name%>'s Communities</h3>
+    <hr/>
+
+		<% for(var i=0; i<user.communities.length; i++) { %>
+
+				<div >
+					<h4><a href="/communities/user.communities[i]._id %>"><%= user.communities[i].name %></a></h4>
+				</div>
+
+		<% } %>
+	</div>
+</div>
+
+<% include ../partials/_footer.ejs %>

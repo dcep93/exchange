@@ -1,0 +1,29 @@
+<% include ../partials/_header.ejs %>
+
+<div class="container">
+  <div id="main-container">
+
+  <h1>Create A Listing</h1>
+
+  <form method="post" action="/listings/<%= listing._id %>">
+    <p>
+      <label>Title:</label>
+      <input type="text" class="form-control" name="title" value="<%= listing.title %>">
+    </p>
+    <p>
+      <label>Description:</label>
+      <textarea class="form-control" rows="3" name="description"><%= listing.description %></textarea>
+    </p>
+    <p>
+      <label>Price:</label>
+      <input type="text" class="form-control" name="price" value="<%= listing.price %>">
+    </p>
+    <p>
+      <input type="submit" class="btn btn-primary" value="Update your Listing">
+    </p>
+  </form>
+
+</div>
+</div>
+
+<% include ../partials/_footer.ejs %>

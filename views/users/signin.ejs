@@ -1,0 +1,25 @@
+<!-- PRIMARY AUTHOR: Trevor Walker -->
+
+<% include ../partials/_header.ejs %>
+
+<div class ="container">
+  <div id="main-container">
+<%if(locals.err) {%>
+<div class="alert alert-danger" role="alert"><%=err%></div>
+<% } %>
+<h1>Log in to College Bazaar</h1>
+      <form action="/users/login" method="POST">
+Username:<br>
+<input type="text" name="name" >
+<br>
+Password:<br>
+<input type="password" name="password" >
+<br><br>
+<input type="submit" value="Log in">
+</form>
+
+</div>
+</div>
+
+
+<% include ../partials/_footer.ejs %>

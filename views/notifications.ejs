@@ -1,0 +1,24 @@
+<% include partials/_header.ejs %>
+
+<div class="container">
+  <div id="main-container">
+		<h3 class="custom-title">My Notifications</h3>
+		<hr/>
+
+		<% notifications.forEach(function(notif) { %>
+		<div class="row">
+			<div class="col-md-6">
+				<a class="notification" id="<%= notif.subscribed.name %>" href="/tags/<%= notif.subscribed.name %>"><%= notif.subscribed.name %>
+					<% if (notif.unread > 0) { %>
+					<span class="counter"><strong><%= notif.unread %></strong></span>
+					<% } %>
+				</a>
+			</div>
+		</div>
+		<% }); %>
+
+  </div>
+</div>
+
+<% include partials/_footer.ejs %>
+

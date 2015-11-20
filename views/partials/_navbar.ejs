@@ -1,0 +1,33 @@
+<header class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">COLLEGE BAZAAR</a>
+      </div>
+
+      <nav class="collapse navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav navbar-right" style="color: white;">
+          <% if (session.userId) { %>
+            <li><a href='/listings/new'>Post New Listing</a></li>
+            <li><a href='/users/home'>My Dashboard</a></li>
+            <li><a href='' id='logout'>Logout</a></li>
+          <% } else { %>
+            <li><a href='/users/login'>Login</a></li>
+          <% } %>
+            <li>
+            	<form class="navbar-form" role="search" action="/search" method="GET">
+                <div class="form-group">
+                  <div class="input-group">
+    	        	    <input class="form-control" type="search" name="query" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button type="submit" value="Search" class="btn">
+                          <span class="fui-search"></span>
+                        </button>
+                    </span>
+                  </div>
+                </div>
+            	</form>
+            </li>
+        </ul>
+      </nav>
+    </div></div>
+</header>
